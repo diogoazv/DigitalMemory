@@ -8,10 +8,9 @@
 }
 .hero {
     width: 100%;
-    max-width: 1200px;
+    max-width: 1400px;
     min-height: 600px;
     display: flex;
-    
     font-family: 'Libre Baskerville', serif;
 
 }
@@ -81,7 +80,7 @@
 .hero-fotos {
     width: 100%;
     display: flex;
-    justify-content: center;
+    justify-content: end;
     gap: 20px;
 }
 
