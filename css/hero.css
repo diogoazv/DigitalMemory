@@ -24,25 +24,20 @@
  
 .hero-text h1 { 
     margin: 0; 
-
     font-family: Georgia, "Times New Roman", serif;
     font-size: clamp(50px, 6vw, 82px);
     font-weight: 400;
-
     line-height: .92;
     letter-spacing: -4px;
-
     color: #171717;
 } 
  
 .hero-text p { 
     max-width: 400px; 
     margin-top: 20px; 
-
     font-family: Arial, sans-serif;
     font-size: 16px; 
     line-height: 1.8;
-
     color: #777;
 } 
  
@@ -53,14 +48,11 @@
     padding: 5px 10px; 
     border: 3px solid rgb(0, 0, 0); 
     border-radius: 17px; 
-
     font-family: Arial, sans-serif;
     font-size: 15px; 
-
     justify-content: center; 
     text-align: center; 
     width: 200px; 
-
     gap: 10px; 
     margin-top: 20px; 
 } 
@@ -120,7 +112,6 @@
 .grupo-duas-fotos { 
     width: 220px; 
     height: 450px; 
- 
     display: flex; 
     flex-direction: column; 
     gap: 20px; 
@@ -137,4 +128,74 @@
     object-fit: cover; 
     display: block; 
     border-radius: 15px; 
+}
+
+
+.botao {
+    line-height: 1;
+    text-decoration: none;
+    width: 190px;
+    height: 40px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 3px solid #000000cc;
+    cursor: pointer;
+    gap: 10px;
+    background-color: #fff;
+    color: #000000cc;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 10rem;
+    padding: 0.75rem 1.5rem;
+    padding-left: 20px;
+    margin-top: 20px;
+    white-space: nowrap;
+    overflow: hidden;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+
+
+.botao-icone-wrapper {
+    width: 25px;
+    height: 25px;
+    position: relative;
+    border: 3px solid #000000de;
+    color: #fff;
+    background-color: #000000de;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+}
+
+.botao-icone {
+    font-size: 11px;
+    transform: rotate(320deg);
+}
+
+.botao-icone-secundario {
+    position: absolute;
+    font-size: 11px;
+    transform: translate(-150%, 150%) rotate(320deg);
+}
+
+.botao:hover {
+    background-color: #000000de;
+    color: #fff;
+}
+.botao:hover .botao-icone-wrapper {
+    color: #000;
+    background-color: #fff;
+}
+
+.botao:hover .botao-icone {
+    transition: transform 0.3s ease-in-out;
+    transform: translate(150%, -150%) rotate(320deg);
+}
+
+.botao:hover .botao-icone-secundario {
+    transition: transform 0.3s ease-in-out 0.1s;
+    transform: translate(0) rotate(320deg);
 }

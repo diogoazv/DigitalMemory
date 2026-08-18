@@ -31,29 +31,22 @@
 
 .galeria-titulo-paragrafo h2 {
     margin: 0;
-
     font-family: Georgia, "Times New Roman", serif;
     font-size: 32px;
     font-weight: 400;
-
     line-height: 1;
     letter-spacing: -1px;
-
     color: #171717;
 }
 
 
 .galeria-titulo-paragrafo p {
     margin: 0;
-
     max-width: 600px;
-
     font-family: Arial, sans-serif;
     font-size: 16px;
     font-weight: 400;
-
     line-height: 1.7;
-
     color: #777;
 }
 
@@ -61,16 +54,13 @@
 .contador-galeria {
     height: 35px;
     width: 45px;
-
     align-items: center;
     justify-content: center;
     text-align: center;
     display: flex;
-
     font-family: monospace;
     font-size: 16px;
     font-weight: 400;
-
     color: #777;
 }
 
@@ -80,7 +70,7 @@
     justify-content: center;
     display: flex;
     flex-wrap: wrap;
-    gap: 20px;
+    gap: 30px;
     margin-top: 40px;
 }
 
@@ -118,28 +108,58 @@
 
 .card-info h2 {
     margin: 0;
-
     font-family: Georgia, "Times New Roman", serif;
     font-size: 21px;
     font-weight: 400;
-
     line-height: 1.2;
     letter-spacing: -0.3px;
-
     color: #171717;
 }
 
 
 .card-info p {
     margin: 0;
-
     font-family: Arial, sans-serif;
     font-size: 14px;
     font-weight: 400;
-
     line-height: 1.7;
-
     color: #777;
-
     overflow-wrap: break-word;
 }
+
+.ver-mais-galeria-container {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    gap: 20px;
+    margin-top: -20px;
+    margin-bottom: 40px;
+}
+
+.ver-mais-galeria-container .btn-ver-mais {
+    margin-left: 20px;
+}
+
+.btn-ver-mais,
+.btn-ver-menos {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 12px;
+    background: #111;
+    color: #fff;
+    border-radius: 50%;
+    border: 3px solid black;
+    cursor: pointer;
+}
+
+.btn-ver-mais i {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    line-height: 1;
+}
+
+
