@@ -1,137 +1,119 @@
-.section-hero { 
-    width: 100%; 
-    height: 100%; 
-    display: flex; 
-    justify-content: center; 
-    align-items: center; 
-    margin-top: 100px; 
-} 
+.section-hero {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 100px;
+    padding: 30px 20px 60px;
+}
 
-.hero { 
-    width: 100%; 
-    max-width: 1400px; 
-    min-height: 600px; 
-    display: flex; 
+.hero {
+    width: 100%;
+    max-width: 1400px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+        "texto fotos"
+        "botao fotos";
+
+    align-items: center;
+    column-gap: 40px;
+    row-gap: 15px;
     font-family: Georgia, "Times New Roman", serif;
-} 
- 
-.hero-text { 
-    width: 100%; 
-    max-width: 700px; 
-    display: flex; 
-    flex-direction: column; 
-} 
- 
-.hero-text h1 { 
-    margin: 0; 
+}
+
+/* Texto inicio*/
+.hero-text {
+    width: 100%;
+    max-width: 700px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    grid-area: texto;
+}
+.hero-text h1 {
+    margin: 0;
     font-family: Georgia, "Times New Roman", serif;
     font-size: clamp(50px, 6vw, 82px);
     font-weight: 400;
     line-height: .92;
     letter-spacing: -4px;
     color: #171717;
-} 
- 
-.hero-text p { 
-    max-width: 400px; 
-    margin-top: 20px; 
+}
+
+.hero-text h1 span {
+    color: rgb(107, 107, 107);
+}
+
+.hero-text p {
+    max-width: 400px;
+    margin-top: 20px;
     font-family: Arial, sans-serif;
-    font-size: 16px; 
+    font-size: 16px;
     line-height: 1.8;
     color: #777;
-} 
- 
-.hero-action { 
-    align-items: center; 
-    background-color: rgb(255, 255, 255); 
-    color: rgb(0, 0, 0); 
-    padding: 5px 10px; 
-    border: 3px solid rgb(0, 0, 0); 
-    border-radius: 17px; 
-    font-family: Arial, sans-serif;
-    font-size: 15px; 
-    justify-content: center; 
-    text-align: center; 
-    width: 200px; 
-    gap: 10px; 
-    margin-top: 20px; 
-} 
-
-.hero-action a { 
-    text-decoration: none; 
-    color: rgb(0, 0, 0); 
-} 
-
-.hero-action i { 
-    font-size: 14px; 
-} 
-
-.hero-action:hover { 
-    background-color: rgb(0, 0, 0); 
-    color: rgb(255, 255, 255); 
-    transition: 0.3s; 
-    font-weight: 400; 
-    border: 3px solid rgb(0, 0, 0); 
-} 
-
-.hero-action:hover a { 
-    color: rgb(255, 255, 255); 
-    transition: 0.3s; 
-    font-weight: 400; 
-} 
- 
-.hero-fotos { 
-    width: 100%; 
-    display: flex; 
-    justify-content: end; 
-    gap: 20px; 
-} 
- 
-/* foto grande a esquerda */ 
-
-.grupo-uma-foto { 
-    width: 300px; 
-    height: 450px; 
-} 
- 
-.grupo-uma-foto .fotos-inicial { 
-    width: 100%; 
-    height: 100%; 
-} 
- 
-.grupo-uma-foto img { 
-    width: 100%; 
-    height: 100%; 
-    object-fit: cover; 
-    display: block; 
-    border-radius: 15px; 
-} 
- 
-/* Duas fotos na direita */ 
-
-.grupo-duas-fotos { 
-    width: 220px; 
-    height: 450px; 
-    display: flex; 
-    flex-direction: column; 
-    gap: 20px; 
-} 
- 
-.grupo-duas-fotos .fotos-inicial { 
-    width: 100%; 
-    height: calc(50% - 10px); 
-} 
- 
-.grupo-duas-fotos img { 
-    width: 100%; 
-    height: 100%; 
-    object-fit: cover; 
-    display: block; 
-    border-radius: 15px; 
 }
 
 
+/* Fotos na direita  */
+
+.hero-fotos {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 20px;
+    grid-area: fotos;
+}
+
+
+/* Foto grande */
+.grupo-uma-foto {
+    width: 300px;
+    height: 450px;
+}
+
+.grupo-uma-foto .fotos-inicial {
+    width: 100%;
+    height: 100%;
+}
+
+.grupo-uma-foto img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    border-radius: 15px;
+}
+
+
+/* Duas fotos */
+.grupo-duas-fotos {
+    width: 220px;
+    height: 450px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.grupo-duas-fotos .fotos-inicial {
+    width: 100%;
+    height: calc(50% - 10px);
+}
+
+.grupo-duas-fotos img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    border-radius: 15px;
+}
+
+
+/* Botao */
+
 .botao {
+    grid-area: botao;
     line-height: 1;
     text-decoration: none;
     width: 190px;
@@ -139,24 +121,24 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    align-self: start;
     border: 3px solid #000000cc;
     cursor: pointer;
     gap: 10px;
     background-color: #fff;
     color: #000000cc;
+    font-family: Arial, sans-serif;
     font-size: 16px;
     font-weight: 600;
     border-radius: 10rem;
     padding: 0.75rem 1.5rem;
     padding-left: 20px;
-    margin-top: 20px;
     white-space: nowrap;
     overflow: hidden;
-    transition: background-color 0.3s, color 0.3s;
+    transition:background-color 0.3s,color 0.3s;
 }
 
-
-
+/* Icone do botao */
 .botao-icone-wrapper {
     width: 25px;
     height: 25px;
@@ -169,22 +151,27 @@
     place-items: center;
     overflow: hidden;
 }
-
+/* Primeiro icone */
 .botao-icone {
     font-size: 11px;
     transform: rotate(320deg);
 }
 
+
+/* Segundo icone */
 .botao-icone-secundario {
     position: absolute;
     font-size: 11px;
     transform: translate(-150%, 150%) rotate(320deg);
 }
 
+
+/* Hover do botao */
 .botao:hover {
     background-color: #000000de;
     color: #fff;
 }
+
 .botao:hover .botao-icone-wrapper {
     color: #000;
     background-color: #fff;
@@ -198,4 +185,219 @@
 .botao:hover .botao-icone-secundario {
     transition: transform 0.3s ease-in-out 0.1s;
     transform: translate(0) rotate(320deg);
+}
+
+
+/* telas ate 1100px*/
+
+@media (max-width: 1100px) {
+
+    .section-hero {
+        margin-top: 80px;
+        padding: 30px;
+    }
+
+    .hero {
+        column-gap: 25px;
+    }
+
+    .hero-text h1 {
+        font-size: clamp(48px, 6vw, 68px);
+    }
+
+    .hero-fotos {
+        gap: 15px;
+    }
+
+    .grupo-uma-foto {
+        width: 240px;
+        height: 400px;
+    }
+
+    .grupo-duas-fotos {
+        width: 180px;
+        height: 400px;
+        gap: 15px;
+    }
+
+    .grupo-duas-fotos .fotos-inicial {
+        height: calc(50% - 7.5px);
+    }
+}
+
+
+/*Mobile*/
+
+@media (max-width: 768px) {
+
+    .section-hero {
+        width: 100%;
+        min-height: auto;
+        margin-top: 70px;
+        padding: 25px 20px 50px;
+    }
+
+    .hero {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0;
+    }
+
+
+    /* Texto */
+
+    .hero-text {
+        width: 100%;
+        max-width: 600px;
+        align-items: flex-start;
+    }
+
+    .hero-text h1 {
+        font-size: clamp(42px, 12vw, 65px);
+        line-height: .95;
+        letter-spacing: -3px;
+    }
+
+    .hero-text p {
+        width: 100%;
+        max-width: 450px;
+        margin-top: 20px;
+        font-size: 15px;
+        line-height: 1.7;
+    }
+
+
+    /* Fotos */
+    .hero-fotos {
+        width: 100%;
+        margin-top: 35px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 12px;
+    }
+
+
+    /* Foto grande */
+    .grupo-uma-foto {
+        width: 55%;
+        height: 350px;
+    }
+
+
+    /* Duas fotos*/
+    .grupo-duas-fotos {
+        width: 40%;
+        height: 350px;
+        gap: 12px;
+    }
+    .grupo-duas-fotos .fotos-inicial {
+        height: calc(50% - 6px);
+    }
+
+
+    /* botao */
+    .botao {
+        width: 190px;
+        display: inline-flex;
+        margin-top: 30px;
+        align-self: center;
+    }
+    
+}
+
+
+/* Celular ate 480px*/
+
+@media (max-width: 480px) {
+
+    .section-hero {
+        margin-top: 35px;
+        padding: 25px 15px 40px;
+    }
+
+    .hero-text h1 {
+        font-size: clamp(38px, 12vw, 52px);
+        letter-spacing: -2px;
+    }
+
+    .hero-text p {
+        font-size: 14px;
+        line-height: 1.6;
+    }
+
+    .hero-fotos {
+        gap: 8px;
+        margin-top: 30px;
+    }
+
+    .grupo-uma-foto {
+        width: 55%;
+        height: 300px;
+    }
+
+    .grupo-duas-fotos {
+        width: 40%;
+        height: 300px;
+        gap: 8px;
+    }
+
+    .grupo-duas-fotos .fotos-inicial {
+        height: calc(50% - 4px);
+    }
+
+    .grupo-uma-foto img,
+    .grupo-duas-fotos img {
+        border-radius: 12px;
+    }
+
+    .botao {
+    width: 140px;
+    height: 35px;
+    border: 2px solid #000000cc;
+    cursor: pointer;
+    gap: 10px;
+    background-color: #fff;
+    color: #000000cc;
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    border-radius: 10rem;
+    padding: 0px;
+    white-space: nowrap;
+    overflow: hidden;
+    transition:background-color 0.3s,color 0.3s;
+}
+
+
+/* Icone do botao */
+.botao-icone-wrapper {
+    width: 20px;
+    height: 20px;
+    position: relative;
+    border: 3px solid #000000de;
+    color: #fff;
+    background-color: #000000de;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+}
+
+
+/* Primeiro icone */
+.botao-icone {
+    font-size: 9px;
+    transform: rotate(320deg);
+}
+
+
+/* Segundo icone */
+.botao-icone-secundario {
+    position: absolute;
+    font-size: 9px;
+    transform: translate(-150%, 150%) rotate(320deg);
+}
 }
