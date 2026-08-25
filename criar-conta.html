@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Criar conta | Memória Digital</title>
+
+    <link rel="stylesheet" href="/css/login-criarconta.css">
+</head>
+
+<body>
+
+    <main class="container">
+
+        <section class="caixa">
+
+            <div class="cabecalho">
+
+                <span class="logo">Memória Digital</span>
+
+                <h1>Criar sua conta</h1>
+
+                <p>
+                    Crie uma conta para começar a compartilhar suas memórias.
+                </p>
+
+            </div>
+
+
+            <form action="/criar-conta" method="POST" class="formulario">
+
+                <div class="campo">
+
+                    <label for="usuario">Nome de usuário</label>
+
+                    <input type="text" id="usuario" name="usuario" placeholder="Escolha um nome de usuário"
+                        autocomplete="username" required>
+
+                </div>
+
+
+                <div class="campo">
+
+                    <label for="senha">Senha</label>
+
+                    <input type="password" id="senha" name="senha" placeholder="Crie uma senha"
+                        autocomplete="new-password" required>
+
+                </div>
+
+
+                <button type="submit" class="botao">
+                    Criar conta
+                </button>
+
+            </form>
+
+
+            <div class="link-cadastro">
+
+                <p>
+                    Já possui uma conta?
+                    <a href="login.html">Entrar</a>
+                </p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</body>
+
+</html>

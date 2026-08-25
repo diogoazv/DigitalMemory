@@ -1,0 +1,152 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Georgia, "Times New Roman", serif;
+    background: #e8e4dc;
+}
+.container {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+}
+.caixa {
+    width: 100%;
+    max-width: 430px;
+    padding: 45px 40px;
+    background: rgba(255, 255, 255, 0.96);
+    border-radius: 4px;
+    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.3);
+}
+.cabecalho {
+    text-align: center;
+    margin-bottom: 35px;
+}
+.logo {
+    display: block;
+    margin-bottom: 25px;
+    font-size: 25px;
+    font-style: italic;
+    letter-spacing: 1px;
+    color: #111;
+}
+.cabecalho h1 {
+    font-size: 29px;
+    font-weight: normal;
+    margin-bottom: 10px;
+    color: #111;
+}
+.cabecalho p {
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #666;
+}
+.formulario {
+    width: 100%;
+}
+.campo {
+    margin-bottom: 20px;
+}
+.campo label {
+    display: block;
+    margin-bottom: 8px;
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    color: #222;
+}
+.campo input {
+    width: 100%;
+    height: 48px;
+    padding: 0 15px;
+    border: 1px solid #d5d5d5;
+    border-radius: 2px;
+    outline: none;
+    background: #fafafa;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    transition: 0.2s;
+}
+
+.campo input:focus {
+    border-color: #111;
+    background: #fff;
+}
+
+.campo input::placeholder {
+    color: #999;
+}
+.botao {
+    width: 100%;
+    height: 50px;
+    border: none;
+    border-radius: 2px;
+    background: #111;
+    color: #fff;
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: 0.25s;
+}
+.botao:hover {
+    background: #333;
+    transform: translateY(-1px);
+}
+
+
+/* LINK PARA OUTRA PAGINA */
+.link-cadastro {
+    margin-top: 28px;
+    padding-top: 23px;
+    border-top: 1px solid #e5e5e5;
+    text-align: center;
+}
+.link-cadastro p {
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+    color: #666;
+}
+.link-cadastro a {
+    color: #111;
+    font-weight: 600;
+    text-decoration: none;
+}
+.link-cadastro a:hover {
+    text-decoration: underline;
+}
+
+
+
+@media (max-width: 500px) {
+
+    .container {
+        padding: 20px;
+    }
+
+    .caixa {
+        padding: 35px 25px;
+    }
+
+    .cabecalho h1 {
+        font-size: 25px;
+    }
+
+    .logo {
+        font-size: 22px;
+    }
+
+}
