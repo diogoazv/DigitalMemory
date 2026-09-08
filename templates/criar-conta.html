@@ -7,7 +7,7 @@
 
     <title>Criar conta | Memória Digital</title>
 
-    <link rel="stylesheet" href="/css/login-criarconta.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/login-criarconta.css') }}">
 </head>
 
 <body>
@@ -62,7 +62,7 @@
 
                 <p>
                     Já possui uma conta?
-                    <a href="login.html">Entrar</a>
+                    <a href="{{ url_for('login') }}">Entrar</a>
                 </p>
 
             </div>
