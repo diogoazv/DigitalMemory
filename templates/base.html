@@ -21,12 +21,13 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 
 </head>
- 
+
 <body>
 
     {% block navbar %}
     <nav class="navbar">
         <div class="logo">Digital Memory</div>
+
         <ul class="nav-links">
             <li><a href="#" style="font-weight: 700;">Início</a></li>
             <li><a href="#" class="linha">Explorar</a></li>
@@ -35,13 +36,15 @@
         </ul>
 
         <div class="opcoes_login">
+            {% if session.get("usuario_id") %}
+            <a href="{{ url_for('minha_galeria') }}" class="login linha">Minha Galeria</a>
+            <a href="{{ url_for('logout') }}" class="criar-conta">Sair</a>
+            {% else %}
             <a href="{{ url_for('login') }}" class="login">Entrar</a>
             <a href="{{ url_for('criar_conta') }}" class="criar-conta">Criar Conta</a>
+            {% endif %}
         </div>
-
-
     </nav>
-
 
 
     <nav class="navbar-mobile">
@@ -49,7 +52,11 @@
         <div class="logo-mobile">Digital Memory</div>
 
         <div class="opcoes_login-mobile">
+            {% if session.get("usuario_id") %}
+            <a href="{{ url_for('minha_galeria') }}" class="criar-conta-mobile">Minha Galeria</a>
+            {% else %}
             <a href="{{ url_for('criar_conta') }}" class="criar-conta-mobile">Criar Conta</a>
+            {% endif %}
         </div>
 
         <div class="menu-mobile">
@@ -58,11 +65,23 @@
             </button>
 
             <ul class="nav-links-mobile">
-                <li class="login-menu-mobile"><a href="{{ url_for('login') }}">Entrar</a></li>
+
+
+
                 <li><a href="#" class="ativo">Início</a></li>
                 <li><a href="#">Explorar</a></li>
                 <li><a href="#">Publicar</a></li>
                 <li><a href="#">Sobre</a></li>
+                            {% if session.get("usuario_id") %}
+                <li><a href="{{ url_for('minha_galeria') }}">Minha Galeria</a></li>
+                <li><a href="{{ url_for('logout') }}">Sair</a></li>
+            {% else %}
+                <li class="login-menu-mobile">
+                    <a href="{{ url_for('login') }}">Entrar</a>
+                </li>
+                <li><a href="{{ url_for('criar_conta') }}">Criar Conta</a></li>
+            {% endif %}
+
             </ul>
         </div>
 
@@ -71,8 +90,8 @@
 
 
     <!-- conteudo especifico de cada pagina-->
-     {% block content %}
-     {% endblock %}
+    {% block content %}
+    {% endblock %}
 
 
     {% block footer %}
@@ -187,7 +206,7 @@
     </footer>
     {% endblock %}
 
-    
+
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
     <script src="{{ url_for('static', filename='js/sessao-galeria.js') }}"></script>
 
