@@ -1,71 +1,8 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
+{% extends "base.html" %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Digital Memory</title>
+{% block title %} Digital Memory {% endblock %}
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Allura&family=Inter:wght@400;500;600;700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Parisienne&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=DM+Serif+Display&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=DM+Sans:wght@400;500;600;700&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
-
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/footer.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/hero.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/nav-bar.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/sessao-galeria.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/sobre-projeto.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-
-</head>
- 
-<body>
-
-    <nav class="navbar">
-        <div class="logo">Digital Memory</div>
-        <ul class="nav-links">
-            <li><a href="#" style="font-weight: 700;">Início</a></li>
-            <li><a href="#" class="linha">Explorar</a></li>
-            <li><a href="#" class="linha">Publicar</a></li>
-            <li><a href="#" class="linha">Sobre</a></li>
-        </ul>
-
-        <div class="opcoes_login">
-            <a href="{{ url_for('login') }}" class="login">Entrar</a>
-            <a href="{{ url_for('criar_conta') }}" class="criar-conta">Criar Conta</a>
-        </div>
-
-
-    </nav>
-
-
-
-    <nav class="navbar-mobile">
-
-        <div class="logo-mobile">Digital Memory</div>
-
-        <div class="opcoes_login-mobile">
-            <a href="{{ url_for('criar_conta') }}" class="criar-conta-mobile">Criar Conta</a>
-        </div>
-
-        <div class="menu-mobile">
-            <button class="menu-btn-mobile" aria-label="Abrir menu" type="button">
-                <i class="fa-solid fa-bars-staggered"></i>
-            </button>
-
-            <ul class="nav-links-mobile">
-                <li class="login-menu-mobile"><a href="{{ url_for('login') }}">Entrar</a></li>
-                <li><a href="#" class="ativo">Início</a></li>
-                <li><a href="#">Explorar</a></li>
-                <li><a href="#">Publicar</a></li>
-                <li><a href="#">Sobre</a></li>
-            </ul>
-        </div>
-
-    </nav>
+{% block content %}
 
     <main>
         <div class="container">
@@ -501,7 +438,7 @@
 
                         <div class="imagem-principal">
 
-                            <img src="{{ url_for('static', filename='/assets/image/Sobre-projeto/sobre-riversul2.jpg') }}"
+                            <img src="{{ url_for('static', filename='assets/image/Sobre-projeto/sobre-riversul2.jpg') }}"
                                 alt="Fotografia histórica da cidade">
 
                             <span class="imagem-numero">PRAÇA </span>
@@ -510,7 +447,7 @@
 
                         <div class="imagem-secundaria">
 
-                            <img src="{{ url_for('static', filename='/assets/image/Sobre-projeto/sobre-riversul1.jpg') }}" alt="Memória da cidade">
+                            <img src="{{ url_for('static', filename='assets/image/Sobre-projeto/sobre-riversul1.jpg') }}" alt="Memória da cidade">
 
                             <span>IGREJA MATRIZ</span>
 
@@ -531,120 +468,4 @@
         </div>
     </main>
 
-
-    <footer class="footer">
-
-        <div class="footer-wrapper">
-
-
-            <div class="footer-top">
-
-                <div class="footer-logo">
-                    <span class="logo-mark">M</span>
-                    <span class="logo-name">Memórias</span>
-                </div>
-
-                <div class="footer-social">
-                    <a href="#" aria-label="GitHub">
-                        <i class="fa-brands fa-github"></i>
-                    </a>
-
-                    <a href="#" aria-label="LinkedIn">
-                        <i class="fa-brands fa-linkedin-in"></i>
-                    </a>
-
-                    <a href="#" aria-label="Instagram">
-                        <i class="fa-brands fa-instagram"></i>
-                    </a>
-                </div>
-
-            </div>
-
-
-            <!-- frase principal -->
-            <div class="footer-message">
-
-                <span>UM ARQUIVO DIGITAL</span>
-
-                <h2>
-                    Guardando hoje aquilo
-                    <em>que amanhã será lembrança.</em>
-                </h2>
-
-            </div>
-
-
-            <!-- Informacoes -->
-            <div class="footer-info">
-
-                <div class="footer-item">
-                    <span class="item-number">01</span>
-
-                    <div>
-                        <strong>Sobre o projeto</strong>
-                        <p>
-                            Um espaço criado para preservar histórias,
-                            fotografias e momentos que fazem parte
-                            da nossa cidade.
-                        </p>
-                    </div>
-                </div>
-
-
-                <div class="footer-item">
-                    <span class="item-number">02</span>
-
-                    <div>
-                        <strong>Desenvolvimento</strong>
-                        <p>
-                            Projeto desenvolvido por
-                            <b>Diogo Azevedo</b>,
-                            unindo tecnologia e memória.
-                        </p>
-                    </div>
-                </div>
-
-
-                <div class="footer-item">
-                    <span class="item-number">03</span>
-
-                    <div>
-                        <strong>Navegação</strong>
-
-                        <div class="footer-navigation">
-                            <a href="#inicio">Início</a>
-                            <a href="#historias">Explorar</a>
-                            <a href="#galeria">Publicar</a>
-                            <a href="#sobre">Sobre</a>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-
-
-
-            <div class="footer-bottom">
-
-                <div>
-                    <span>© 2026 Memórias</span>
-                    <span>Todos os direitos reservados.</span>
-                </div>
-
-                <div class="footer-author">
-                    Desenvolvido por
-                    <strong>DiogoAzevedo</strong>
-                </div>
-
-            </div>
-
-        </div>
-
-    </footer>
-
-
-</body>
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
-<script src="{{ url_for('static', filename='js/sessao-galeria.js') }}"></script>
-
-</html>
+{% endblock %}
