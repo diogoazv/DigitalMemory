@@ -19,6 +19,14 @@ def index():
     return render_template("index.html")
 
 
+@app.route("/publicar", methods=["GET", "POST"])
+def publicar():
+    if "usuario_id" not in session:
+        return redirect(url_for("criar_conta"))
+
+    return render_template("publicar.html")
+
+
 @app.route("/login", methods=["GET", "POST"])
 def login():
 
