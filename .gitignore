@@ -8,3 +8,6 @@ database/*.db
 .env.*
 
 .vscode/
+
+uploads/*
+!uploads/.gitkeep

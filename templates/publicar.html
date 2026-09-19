@@ -1,0 +1,251 @@
+{% extends "base.html" %}
+
+{% block title %}Publicar | Digital Memory{% endblock %}
+
+{% block content %}
+
+<main class="publicar-page">
+
+    <header class="publicar-header">
+
+        <div class="publicar-label">
+            <i class="fa-regular fa-images"></i>
+            NOVA MEMÓRIA
+        </div>
+
+        <h1>
+            Compartilhe<br>
+            uma memória.
+        </h1>
+
+        <p>
+            Uma fotografia pode guardar uma história inteira.
+            Compartilhe um momento de Riversul e ajude a preservar
+            essas lembranças.
+        </p>
+
+    </header>
+
+
+    <form class="publicar-form" method="POST" enctype="multipart/form-data">
+
+        <!-- foto -->
+        <section class="foto-area">
+
+            <input type="file" id="foto" name="foto" accept="image/jpeg,image/png,image/webp" hidden required>
+
+            <label for="foto" class="upload-box">
+
+                <div class="upload-placeholder">
+
+                    <div class="upload-icon">
+                        <i class="fa-regular fa-image"></i>
+                    </div>
+
+                    <div>
+                        <strong>Escolha uma fotografia</strong>
+
+                        <span>
+                            JPG, PNG ou WEBP
+                        </span>
+                    </div>
+
+                    <i class="fa-solid fa-arrow-up-from-bracket upload-arrow"></i>
+
+                </div>
+
+                <div class="foto-preview">
+
+                    <img id="preview-imagem" src="" alt="Pré-visualização da fotografia">
+
+                    <div class="preview-info">
+
+                        <span>
+                            <i class="fa-regular fa-image"></i>
+                            Fotografia selecionada
+                        </span>
+
+                        <small>
+                            Clique para alterar
+                        </small>
+
+                    </div>
+
+                </div>
+
+            </label>
+
+        </section>
+
+
+        <!--INFORMACOES -->
+
+        <section class="informacoes">
+
+            <div class="campo">
+
+                <label for="titulo">
+                    TÍTULO
+                </label>
+
+                <div class="campo-input">
+
+                    <i class="fa-regular fa-pen-to-square"></i>
+
+                    <input type="text" id="titulo" name="titulo" placeholder="Dê um nome para essa memória"
+                        maxlength="100" required>
+
+                </div>
+
+            </div>
+
+
+            <div class="campo">
+
+                <label for="ano">
+                    ANO
+                </label>
+
+                <div class="campo-input select-wrapper">
+
+                    <i class="fa-regular fa-calendar"></i>
+
+                    <select id="ano" name="ano" required>
+
+                        <option value="" selected disabled>
+                            Selecione o ano
+                        </option>
+
+                        {% for ano in range(2026, 1999, -1) %}
+
+                        <option value="{{ ano }}">
+                            {{ ano }}
+                        </option>
+
+                        {% endfor %}
+
+                        <option value="outros">
+                            Outros / Ano desconhecido
+                        </option>
+
+                    </select>
+
+                    <i class="fa-solid fa-chevron-down select-arrow"></i>
+
+                </div>
+
+            </div>
+
+
+            <div class="campo campo-descricao">
+
+                <label for="descricao">
+                    DESCRIÇÃO
+                </label>
+
+                <div class="campo-textarea">
+
+                    <i class="fa-regular fa-message"></i>
+
+                    <textarea id="descricao" name="descricao" placeholder="Conte um pouco sobre essa fotografia..."
+                        maxlength="300" required></textarea>
+
+                </div>
+
+                <span class="contador">
+                    0 / 300
+                </span>
+
+            </div>
+
+        </section>
+
+
+        <!--ENVIO-->
+        <footer class="publicar-footer">
+
+            <div class="aviso">
+
+                <i class="fa-solid fa-circle-info"></i>
+
+                <span>
+                    Sua fotografia fará parte do acervo
+                    do Digital Memory.
+                </span>
+
+            </div>
+
+            <button type="submit">
+
+                <span>Publicar memória</span>
+
+                <i class="fa-solid fa-arrow-right"></i>
+
+            </button>
+
+        </footer>
+
+    </form>
+
+</main>
+
+
+<script>
+
+const inputFoto = document.getElementById("foto");
+const uploadBox = document.querySelector(".upload-box");
+const uploadPlaceholder = document.querySelector(".upload-placeholder");
+const fotoPreview = document.querySelector(".foto-preview");
+const previewImagem = document.getElementById("preview-imagem");
+
+
+// Quando o usuario escolher uma foto
+inputFoto.addEventListener("change", function () {
+
+    // Pega o primeiro arquivo selecionado
+    const arquivo = this.files[0];
+
+    // Se nenhum arquivo foi selecionado, nao faz nada
+    if (!arquivo) {
+        return;
+    }
+
+    // Permite ler o arquivo escolhido pelo usuario
+    const leitor = new FileReader();
+
+    // Quando a leitura da imagem terminar
+    leitor.onload = function (evento) {
+
+        // Coloca a foto escolhida na imagem de previa
+        previewImagem.src = evento.target.result;
+
+        // esconde a mensagem de escolher uma foto
+        uploadPlaceholder.style.display = "none";
+
+        // mostra a previa da foto
+        fotoPreview.style.display = "flex";
+
+        // Indica que ja existe uma foto selecionada
+        uploadBox.classList.add("tem-foto");
+    };
+
+    // Le a imagem para podermos mostrar a previa
+    leitor.readAsDataURL(arquivo);
+});
+
+
+// Pega o campo de descriçao e o contador de caracteres
+const descricao = document.getElementById("descricao");
+const contador = document.querySelector(".contador");
+
+
+// atualiza o contador enquanto o usuario escreve
+descricao.addEventListener("input", function () {
+
+    contador.textContent =
+        `${this.value.length} / 300`;
+});
+
+</script>
+
+{% endblock %}

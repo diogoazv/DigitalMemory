@@ -1,0 +1,455 @@
+.publicar-page {
+    width: min(100% - 50px, 1050px);
+    margin: 85px auto 120px;
+}
+
+
+/* cabecalho */
+.publicar-header {
+    max-width: 760px;
+    margin-bottom: 75px;
+}
+
+.publicar-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 30px;
+    font-family: "Inter", sans-serif;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: #888;
+}
+
+.publicar-label i {
+    font-size: 11px;
+}
+
+.publicar-header h1 {
+    margin: 0;
+    font-family: "Playfair Display", serif;
+    font-size: clamp(60px, 8vw, 100px);
+    font-weight: 400;
+    line-height: 0.92;
+    letter-spacing: -4px;
+}
+
+.publicar-header p {
+    max-width: 520px;
+    margin: 32px 0 0;
+    font-family: "Inter", sans-serif;
+    font-size: 13px;
+    line-height: 1.8;
+    color: #777;
+}
+
+
+/*formulario */
+
+.publicar-form {
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* upload */
+
+.foto-area {
+    margin-bottom: 55px;
+}
+
+.upload-box {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 185px;
+    border: 1px solid #d8d8d8;
+    cursor: pointer;
+    overflow: hidden;
+    transition:
+        border-color 0.25s ease,
+        background 0.25s ease;
+}
+
+.upload-box:hover {
+    border-color: #111;
+    background: #fafafa;
+}
+
+.upload-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding: 0 35px;
+    box-sizing: border-box;
+}
+
+.upload-icon {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 20px;
+    border: 1px solid #111;
+}
+
+.upload-icon i {
+    font-size: 17px;
+}
+
+.upload-placeholder strong {
+    display: block;
+    font-family: "Playfair Display", serif;
+    font-size: 23px;
+    font-weight: 400;
+}
+
+.upload-placeholder span {
+    display: block;
+    margin-top: 5px;
+    font-family: "Inter", sans-serif;
+    font-size: 10px;
+    color: #999;
+}
+
+.upload-arrow {
+    margin-left: auto;
+    font-size: 13px;
+    color: #888;
+    transition: transform 0.25s ease;
+}
+
+.upload-box:hover .upload-arrow {
+    transform: translateY(-3px);
+    color: #111;
+}
+
+
+/* PREVIA DA FOTO */
+
+.foto-preview {
+    display: none;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 15px;
+}
+
+.foto-preview img {
+    width: 155px;
+    height: 155px;
+    object-fit: cover;
+    display: block;
+}
+
+.preview-info {
+    display: flex;
+    flex-direction: column;
+    margin-left: 25px;
+}
+
+.preview-info span {
+    font-family: "Inter", sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+}
+
+.preview-info span i {
+    margin-right: 6px;
+}
+
+.preview-info small {
+    margin-top: 8px;
+    font-family: "Inter", sans-serif;
+    font-size: 10px;
+    color: #999;
+}
+
+
+/* informacoes */
+.informacoes {
+    display: grid;
+    grid-template-columns: 1fr 230px;
+    column-gap: 45px;
+    row-gap: 38px;
+}
+
+.campo {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.campo-descricao {
+    grid-column: 1 / -1;
+}
+
+.campo label {
+    margin-bottom: 12px;
+
+    font-family: "Inter", sans-serif;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 1.7px;
+    color: #555;
+}
+
+.campo-input {
+    position: relative;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #ccc;
+}
+
+.campo-input > i {
+    margin-right: 12px;
+    font-size: 12px;
+    color: #999;
+}
+
+.campo input,
+.campo select {
+    width: 100%;
+    height: 42px;
+    padding: 0;
+    border: 0;
+    outline: none;
+    background: transparent;
+    font-family: "Inter", sans-serif;
+    font-size: 13px;
+    color: #111;
+}
+
+.campo input::placeholder {
+    color: #aaa;
+}
+
+
+/* select */
+
+.select-wrapper {
+    position: relative;
+}
+
+.select-wrapper select {
+    appearance: none;
+    cursor: pointer;
+    padding-right: 25px;
+}
+
+.select-arrow {
+    position: absolute;
+    right: 0;
+    margin: 0 !important;
+    font-size: 9px !important;
+    pointer-events: none;
+}
+
+
+/*Descricao */
+.campo-textarea {
+    display: flex;
+    align-items: flex-start;
+    border-bottom: 1px solid #ccc;
+}
+
+.campo-textarea > i {
+    margin-top: 14px;
+    margin-right: 12px;
+    font-size: 12px;
+    color: #999;
+}
+
+.campo textarea {
+    width: 100%;
+    min-height: 110px;
+    padding: 12px 0;
+    border: 0;
+    outline: none;
+    resize: vertical;
+    background: transparent;
+    font-family: "Inter", sans-serif;
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+.campo textarea::placeholder {
+    color: #aaa;
+}
+
+.campo-input:focus-within,
+.campo-textarea:focus-within {
+    border-color: #111;
+}
+
+.contador {
+    align-self: flex-end;
+    margin-top: 7px;
+    font-family: "Inter", sans-serif;
+    font-size: 9px;
+    color: #aaa;
+}
+
+
+/* Rodape */
+
+.publicar-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 55px;
+    padding-top: 25px;
+    border-top: 1px solid #ddd;
+}
+
+.aviso {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    max-width: 400px;
+    font-family: "Inter", sans-serif;
+    font-size: 9px;
+    line-height: 1.5;
+    color: #999;
+}
+
+.aviso i {
+    font-size: 11px;
+}
+
+.publicar-footer button {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    padding: 15px 19px;
+    border: 1px solid #111;
+    background: #111;
+    color: #fff;
+    font-family: "Inter", sans-serif;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 1.3px;
+    cursor: pointer;
+    transition: 0.25s ease;
+}
+
+.publicar-footer button:hover {
+    background: transparent;
+    color: #111;
+}
+
+.publicar-footer button i {
+    font-size: 10px;
+    transition: transform 0.25s ease;
+}
+
+.publicar-footer button:hover i {
+    transform: translateX(4px);
+}
+
+
+/* RESPONSIVO */
+
+@media (max-width: 700px) {
+
+    .publicar-page {
+        width: calc(100% - 30px);
+        margin-top: 50px;
+        margin-bottom: 80px;
+    }
+
+    .publicar-header {
+        margin-bottom: 55px;
+    }
+
+    .publicar-header h1 {
+        font-size: 55px;
+        letter-spacing: -2.5px;
+    }
+
+    .publicar-header p {
+        font-size: 12px;
+    }
+
+    .upload-box {
+        height: 150px;
+    }
+
+    .upload-placeholder {
+        padding: 0 20px;
+    }
+
+    .upload-icon {
+        width: 42px;
+        height: 42px;
+        margin-right: 15px;
+    }
+
+    .upload-placeholder strong {
+        font-size: 18px;
+    }
+
+    .upload-placeholder span {
+        font-size: 9px;
+    }
+
+    .foto-preview {
+        padding: 10px;
+    }
+
+    .foto-preview img {
+        width: 125px;
+        height: 125px;
+    }
+
+    .preview-info {
+        margin-left: 15px;
+    }
+
+    .informacoes {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .publicar-footer {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 25px;
+    }
+
+    .publicar-footer button {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+
+@media (max-width: 450px) {
+
+    .publicar-header h1 {
+        font-size: 46px;
+    }
+
+    .upload-placeholder strong {
+        font-size: 16px;
+    }
+
+    .upload-placeholder span {
+        display: none;
+    }
+
+    .upload-arrow {
+        display: none;
+    }
+
+    .foto-preview img {
+        width: 105px;
+        height: 105px;
+    }
+
+}
