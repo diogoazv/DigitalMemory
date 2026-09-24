@@ -251,6 +251,36 @@ def minha_galeria():
     # Renderiza a pagina minha_galeria.html passando as fotos do usuario
     return render_template("minha_galeria.html", fotos=fotos)
 
+
+@app.route("/excluir_foto/<int:foto_id>", methods=["POST"])
+def excluir_foto(foto_id):
+
+    # Verifica se o usuario esta logado
+    if "usuario_id" not in session:
+        return redirect(url_for("login"))
+
+    # Busca a foto no banco de dados pelo ID e pelo ID do usuario logado
+    foto = Foto.query.filter_by(id=foto_id, usuario_id=session["usuario_id"]).first()
+
+    # Verifica se a foto existe e pertence ao usuario logado
+    if not foto:
+        return redirect(url_for("minha_galeria"))
+
+    # Remove a foto do banco de dados
+    caminho = os.path.join(app.config["UPLOAD_FOLDER"], foto.imagem)
+
+    # Verifica se o arquivo existe antes de tentar remove-lo
+    if os.path.exists(caminho):
+        os.remove(caminho)
+
+    # Remove a foto do banco de dados
+    db.session.delete(foto)
+    db.session.commit()
+
+    return redirect(url_for("minha_galeria"))
+
+
+
 # Cria as tabelas no banco caso elas ainda nao existam
 with app.app_context():
     db.create_all()

@@ -34,21 +34,18 @@
                         <img src="{{ url_for('servir_upload', nome_arquivo=foto.imagem) }}"alt="{{ foto.titulo }}">
                     </div>
 
-                    <div class="foto-card-conteudo">
+                    <div class="foto-card-acoes">
+                        <a href="{{ url_for('servir_upload', nome_arquivo=foto.imagem) }}" download class="botao-download">
+                            <i class="fa-solid fa-download"></i>
+                            Baixar
+                        </a>
 
-                        <h2>{{ foto.titulo }}</h2>
-                        <p>{{ foto.descricao }}</p>
-
-                        <div class="foto-card-acoes">
-                            <a href="{{ url_for('servir_upload', nome_arquivo=foto.imagem) }}" download class="botao-download">
-                                <i class="fa-solid fa-download"></i>Baixar
-                            </a>
-
-                            <button type="button" class="botao-excluir">
-                                <i class="fa-solid fa-trash"></i>Excluir
+                        <form action="{{ url_for('excluir_foto', foto_id=foto.id) }}" method="POST">
+                            <button type="submit" class="botao-excluir">
+                                <i class="fa-solid fa-trash"></i>
+                                Excluir
                             </button>
-                        </div>
-
+                        </form>
                     </div>
                 </article>
 
@@ -66,6 +63,6 @@
         </div>
 
     {% endif %}
-    
+
 </main>
 {% endblock %}
