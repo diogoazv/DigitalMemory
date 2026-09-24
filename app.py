@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, session, redirect, url_for
+from flask import Flask, render_template, request, session, redirect, url_for, send_from_directory
 from dotenv import load_dotenv
 from PIL import Image
 import os
@@ -121,6 +121,9 @@ def publicar():
             # Confere se o arquivo realmente possui uma imagem valida
             imagem.verify()
 
+            # volta o arquivo para o começo novamente, porque a função verify() lê o arquivo inteiro
+            foto.seek(0)
+
         except Exception:
             return "Arquivo de imagem inválido!"
 
@@ -221,10 +224,32 @@ def logout():
     return redirect(url_for("index"))
 
 
+@app.route("/uploads/<nome_arquivo>")
+def servir_upload(nome_arquivo):
+
+    print("Tentando abrir:", nome_arquivo)
+    print("Pasta:", app.config["UPLOAD_FOLDER"])
+
+    return send_from_directory(
+        app.config["UPLOAD_FOLDER"],
+        nome_arquivo
+    )
+
+
+
+
 # Pagina onde o usuario poderá ver suas proprias fotos
 @app.route("/minha-galeria")
 def minha_galeria():
-    return "Minha galeria de fotos"
+    # Verifica se o usuario está logado
+    if "usuario_id" not in session:
+        return redirect(url_for("login"))
+
+    # Busca todas as fotos do usuario logado no banco de dados
+    fotos = Foto.query.filter_by(usuario_id=session["usuario_id"]).all()
+
+    # Renderiza a pagina minha_galeria.html passando as fotos do usuario
+    return render_template("minha_galeria.html", fotos=fotos)
 
 # Cria as tabelas no banco caso elas ainda nao existam
 with app.app_context():

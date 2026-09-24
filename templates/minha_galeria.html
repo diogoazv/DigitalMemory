@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Minha Galeria - Digital Memory
+{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/minha-galeria.css') }}">
+{% endblock %}
+
+{% block content %}
+
+<main class="minha-galeria">
+
+    <header class="minha-galeria-cabecalho">
+        <span>MINHAS MEMÓRIAS</span>
+
+        <h1>Minha Galeria.</h1>
+
+        <p>
+            Todas as memórias que você compartilhou através das lentes.
+        </p>
+
+    </header>
+
+    {% if fotos %}
+
+        <div class="minha-galeria-grid">
+
+            {% for foto in fotos %}
+                <article class="foto-card">
+
+                    <div class="foto-card-imagem">
+                        <img src="{{ url_for('servir_upload', nome_arquivo=foto.imagem) }}"alt="{{ foto.titulo }}">
+                    </div>
+
+                    <div class="foto-card-conteudo">
+
+                        <h2>{{ foto.titulo }}</h2>
+                        <p>{{ foto.descricao }}</p>
+
+                        <div class="foto-card-acoes">
+                            <a href="{{ url_for('servir_upload', nome_arquivo=foto.imagem) }}" download class="botao-download">
+                                <i class="fa-solid fa-download"></i>Baixar
+                            </a>
+
+                            <button type="button" class="botao-excluir">
+                                <i class="fa-solid fa-trash"></i>Excluir
+                            </button>
+                        </div>
+
+                    </div>
+                </article>
+
+            {% endfor %}
+        </div>
+
+    {% else %}
+
+        <div class="galeria-vazia">
+            <i class="fa-regular fa-images"></i>
+
+            <h2> Sua galeria está vazia. </h2>
+
+            <p> Comece compartilhando uma nova memória. </p>
+        </div>
+
+    {% endif %}
+    
+</main>
+{% endblock %}
